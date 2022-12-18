@@ -1,6 +1,10 @@
 {
   "dashboard": {
-    "title": "Sähkönhinta"
+    "title": "Pörssisähkön hinta",
+    "units": {
+      "centsKwh": "snt/kWh",
+      "eurMwh": "€/MWh"
+    }
   },
   "electricityPriceChart": {
     "yAxisLabel": "Hinta",

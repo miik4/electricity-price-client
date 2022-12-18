@@ -8,6 +8,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {ConfigService} from "./assets/config/config.service";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,9 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  constructor(private configService: ConfigService) {
+    configService.load();
+  }
 }
 
 // required for AOT compilation

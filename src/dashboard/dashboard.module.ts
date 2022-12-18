@@ -6,6 +6,12 @@ import {DashboardRoutingModule} from "./dashboard-routing.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatCardModule} from "@angular/material/card";
 import {TranslateModule} from "@ngx-translate/core";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {FormsModule} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
 
 
 @NgModule({
@@ -18,7 +24,13 @@ import {TranslateModule} from "@ngx-translate/core";
     DashboardRoutingModule,
     FlexLayoutModule,
     MatCardModule,
-    TranslateModule
+    TranslateModule,
+    MatButtonToggleModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class DashboardModule {

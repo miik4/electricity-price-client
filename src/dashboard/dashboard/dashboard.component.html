@@ -1,8 +1,18 @@
 <div fxLayout="column" fxFlexFill fxLayoutAlign="center center">
   <mat-card class="dashboard-mat-card">
     <mat-card-content>
-      <div>{{'dashboard.title' | translate}}</div>
-      <app-electricity-price-chart></app-electricity-price-chart>
+      <div fxLayout="row">
+        <div fxLayout="column" fxLayoutAlign="center start">
+          <h1>{{'dashboard.title' | translate}}</h1>
+        </div>
+        <div fxLayout="column" fxFlex fxLayoutAlign="center end">
+          <mat-button-toggle-group (change)="selectedUnit = $event.value">
+            <mat-button-toggle [value]="units.centsKwh">{{'dashboard.units.centsKwh' | translate}}</mat-button-toggle>
+            <mat-button-toggle [value]="units.eurMwh">{{'dashboard.units.eurMwh' | translate}}</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+      <app-electricity-price-chart [selectedUnit]="selectedUnit"></app-electricity-price-chart>
     </mat-card-content>
   </mat-card>
 </div>
