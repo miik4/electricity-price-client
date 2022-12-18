@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-electricity-price-chart',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ElectricityPriceChartComponent implements OnInit {
 
-  constructor() { }
+  saleData = [
+    { name: "Mobiles", value: 105000 },
+    { name: "Laptop", value: 55000 },
+    { name: "AC", value: 15000 },
+    { name: "Headset", value: 150000 },
+    { name: "Fridge", value: 20000 }
+  ];
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-
 }
