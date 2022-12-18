@@ -5,6 +5,7 @@ import {ElectricityPriceChartModule} from "../electricity-price-chart/electricit
 import {DashboardRoutingModule} from "./dashboard-routing.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatCardModule} from "@angular/material/card";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {MatCardModule} from "@angular/material/card";
     ElectricityPriceChartModule,
     DashboardRoutingModule,
     FlexLayoutModule,
-    MatCardModule
+    MatCardModule,
+    TranslateModule
   ]
 })
 export class DashboardModule {

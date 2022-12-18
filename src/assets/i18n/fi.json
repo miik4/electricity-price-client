@@ -1,0 +1,9 @@
+{
+  "dashboard": {
+    "title": "Sähkönhinta"
+  },
+  "electricityPriceChart": {
+    "yAxisLabel": "Hinta",
+    "xAxisLabel": "Aika"
+  }
+}

@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ElectricityPriceChartComponent} from './electricity-price-chart/electricity-price-chart.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {NgxChartsModule} from "@swimlane/ngx-charts";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {NgxChartsModule} from "@swimlane/ngx-charts";
   imports: [
     CommonModule,
     FlexLayoutModule,
-    NgxChartsModule
+    NgxChartsModule,
+    TranslateModule
   ]
 })
 export class ElectricityPriceChartModule {
