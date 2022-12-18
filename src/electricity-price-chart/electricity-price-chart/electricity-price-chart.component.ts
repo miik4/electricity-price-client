@@ -3,6 +3,7 @@ import {ElectricityPriceHttpService} from "../../services/electricity-price-http
 import {ElectricityPrice} from "../../models/electricity-price";
 import {take} from "rxjs";
 import {ElectricityPriceUnit} from "../../enums/electricity-price-unit";
+import {max} from 'lodash';
 
 @Component({
   selector: 'app-electricity-price-chart',
@@ -16,6 +17,7 @@ export class ElectricityPriceChartComponent implements OnInit, OnChanges {
 
   electricityPrices: ElectricityPrice[] = [];
   chartData: { name: string, value: number }[] = [];
+  yScaleMax: number;
 
   constructor(private electricityPriceHttpService: ElectricityPriceHttpService) {
   }
@@ -31,6 +33,9 @@ export class ElectricityPriceChartComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.selectedUnit?.currentValue) {
+      this.initChartData();
+    }
+    if (changes.selectedDate?.currentValue) {
       this.initChartData();
     }
   }
@@ -49,8 +54,13 @@ export class ElectricityPriceChartComponent implements OnInit, OnChanges {
       .map(x => {
         return {
           name: new Date(x.inEffectFrom).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}),
-          value: this.selectedUnit === ElectricityPriceUnit.eurMwh ? x.price : Math.round((x.price / 10) * 100) / 100
+          value: this.priceBySelectedUnit(x.price)
         };
       });
+    this.yScaleMax = max(this.electricityPrices.map(x => this.priceBySelectedUnit(x.price)));
+  }
+
+  private priceBySelectedUnit(price: number): number {
+    return this.selectedUnit === ElectricityPriceUnit.eurMwh ? price : Math.round((price / 10) * 100) / 100;
   }
 }
